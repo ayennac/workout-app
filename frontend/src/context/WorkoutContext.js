@@ -1,5 +1,7 @@
 import { createContext, useReducer } from 'react'
 
+
+//WorkoutsContext object whose value
 export const WorkoutsContext = createContext()
 
 
@@ -9,7 +11,7 @@ export const workoutsReducer = (state, action) => {
             return {
                 workouts:action.payload
             }
-        case 'CREATE_WORKOUTS':
+        case 'CREATE_WORKOUT':
             return {
                 workouts: [action.payload, ...state.workouts]
             }
@@ -28,12 +30,10 @@ export const WorkoutsContextProvider = ({ children }) =>{
     in all CAPS to the workouts state
     payload: presents the data we need to make this change
     dispatch({type: 'SET_WORKOUTS', payload: [{}, {}]})
-    */
-
-    
+    */    
 
     return(
-        <WorkoutsContext.Provider value ={{state, dispatch}}>
+        <WorkoutsContext.Provider value ={{...state, dispatch}}>
             {children}
         </WorkoutsContext.Provider>
     )
