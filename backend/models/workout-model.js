@@ -36,6 +36,10 @@ const workoutSchema = new Schema({
     load: {
         type: Number,
         required: true
+    },
+    user_id:{
+        type: String, 
+        requried: true
     }
 }, { timestamps: true })
 //Model
